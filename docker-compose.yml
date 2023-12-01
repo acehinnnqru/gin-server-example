@@ -1,0 +1,18 @@
+services:
+  server:
+    image: ghcr.io/acehinnnqru/gin-server-example:main
+    build: .
+    container_name: gin-server-example
+    restart: unless-stopped
+    ports:
+      - "10101:10101"
+      - "10102:10102"
+    volumes:
+      - "./app.toml:/app/app.toml"
+      - "./_locales/:/app/_locales"
+      - "gin-server-logs-vol:/app/logs"
+    networks:
+      - default
+
+volumes:
+  gin-server-logs-vol:

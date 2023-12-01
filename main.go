@@ -29,7 +29,7 @@ func engine() *gin.Engine {
 	r.Use(ginI18n.Localize(ginI18n.WithBundle(&ginI18n.BundleCfg{
 		DefaultLanguage: language.Make(config.AppConfig.DefaultLanguage),
 		AcceptLanguage: []language.Tag{
-			language.English, language.Chinese,
+			language.English,
 		},
 		UnmarshalFunc:    toml.Unmarshal,
 		RootPath:         "./_locales",
